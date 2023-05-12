@@ -2,6 +2,7 @@
 
 ```mermaid
 sequenceDiagram
+    autonumber
     participant Pub as Publisher
     participant GPT as Google Publisher Tag
     box PrebidJS
