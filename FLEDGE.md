@@ -11,6 +11,8 @@ sequenceDiagram
     end
     participant SSP_Server
     participant DSP_Server
+    participant GAM as GAM/OB/AdX
+    Participant FLEDGE
 
     Pub->>GPT: Declare AdSlots on page
     Pub->>GPT: Enable FLEDGE on some AdSlots
@@ -27,9 +29,13 @@ sequenceDiagram
     PBJS_FLEDGE->>GPT: Submit FLEDGE Auction Config <br/> for FLEDGE enabled AdSlots with FLEDGE bids
     PBJS->>PBJS: Conduct Contextual Bids Auction
     PBJS->>GPT: Add Key-Value pairs for Contxtual bid on AdSlot
-
-    
-    
-
-    
+    GPT->>GAM: Make GAM Ad Request
+    GAM->>GPT: Returns GAM Ad Response
+    GPT->>FLEDGE: Invokes runAdAuction with ComponentAuctions
+    FLEDGE->>GPT: Returns opaque pointer
+    GPT->>Pub: Returns IG Ad in fenced frame
+    FLEDGE->>GPT: Returns null
+    GPT->>Pub: Renders Contextual GAM bid
+    GPT->>PBJS: Signal Prebid to render Contextual Prebid bid
+    PBJS->>Pub: Renders Contextual Prebid bid
 ```
