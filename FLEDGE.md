@@ -33,12 +33,15 @@ sequenceDiagram
     GAM->>GPT: Returns GAM Ad Response
     GPT->>FLEDGE: Invokes runAdAuction with ComponentAuctions
     alt A Ineterest Group Auction Winner
-        FLEDGE->>GPT: Returns opaque pointer
+        FLEDGE->>GPT: FLEDGE Returns Opaque Pointer
         GPT->>Pub: Returns IG Ad in fenced frame
     else B Contextual Auction Winner    
-        FLEDGE->>GPT: Returns null
-        GPT->>Pub: Renders Contextual GAM bid
-        GPT->>PBJS: Signal Prebid to render Contextual Prebid bid
-        PBJS->>Pub: Renders Contextual Prebid bid
+        FLEDGE->>GPT: FLEDGE Returns Null
+        alt B1 GAM Winner
+            GPT->>Pub: Renders Contextual GAM bid
+        else B2 Prebid Winner    
+            GPT->>PBJS: Signal Prebid to render Contextual Prebid bid
+            PBJS->>Pub: Renders Contextual Prebid bid
+        end    
     end    
 ```
