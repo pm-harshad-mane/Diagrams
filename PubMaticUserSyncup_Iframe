@@ -1,0 +1,19 @@
+## PubMatic User Syncup: Iframe Based flow
+
+```mermaid
+sequenceDiagram
+    autonumber
+    box Publisher Page
+    participant CMP
+    participant UserSync as user_sync.html
+    end
+    box PubMatic Server Side Components
+    participant PugM as PugMaster
+    participant Pug
+    participant SPug
+    end
+    participant DSP as DSP UserSync end-point
+    
+    UserSync->>UserSync: Loaded in Iframe
+    
+```
