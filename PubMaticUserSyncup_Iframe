@@ -13,7 +13,7 @@ sequenceDiagram
     participant SPug
     end
     participant DSP as DSP UserSync end-point
-    
+
     UserSync->>UserSync: Loaded in Iframe
     
 ```
