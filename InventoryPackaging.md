@@ -9,10 +9,10 @@ sequenceDiagram
     box Publisher Page
     participant PubCode as Publisher Code on page
     participant LS as Browser Local Storage
-    participant GPT as Google Publisher Tag 
-    participant PBJS_Core as Prebid JS Core
-    participant PBJS_Module as Prebid JS Data Collection Module
-    participant SSP_Bidder as PubMatic Bid Adapter
+    participant GPT as Google Publisher Tag
+        participant PBJS_Core as Prebid JS Core
+        participant PBJS_Module as Prebid JS Data Collection Module
+        participant SSP_Bidder as PubMatic Bid Adapter
     end
     participant SSP_Server as SSP Server
     participant GAM as Google Ad Manager
