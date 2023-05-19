@@ -39,6 +39,7 @@ sequenceDiagram
 ```
 
 ## New Approach 1: Stream Events from Page to Analytics
+Storing data on user's device limits the data that can be used in decision making so we should stream data to server side storage as event occurs and then aggregate the data and proovide it to SSP Server to use in the decision making
 
 ```mermaid
 sequenceDiagram
