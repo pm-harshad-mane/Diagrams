@@ -25,6 +25,13 @@ sequenceDiagram
         SSP->>SSP: Wrap the OutstramVideo bid content with the pre-defined code
         SSP->>SDK: SSP sends the OutstramVideo bid to SDK
         SDK->>SDK: Renders creative
+        SDK->>SDK: Creative code loads Video player
+        SDK->>SDK: Creative code checks viewability
+        alt: Creative code checks viewabiliity > 50%
+            SDK->>SDK: Creative code auto-plays the video
+        else: Creative code checks viewabiliity < 50%
+            SDK->>SDK: Creative code pauses the video
+        end    
       end      
     end
     
