@@ -38,7 +38,7 @@ sequenceDiagram
     PBJS_Module->>LS: Store stat to note that creatve was rendered
 ```
 
-## New Approach 1: Stream Events from Page to Analytics
+## New Approach 1: Stream Events from Page to a new Analytics Pipeline
 Storing data on user's device limits the data that can be used in decision making so we should stream data to server side storage as event occurs and then aggregate the data and proovide it to SSP Server to use in the decision making
 
 ```mermaid
