@@ -38,7 +38,7 @@ sequenceDiagram
     PBJS_Module->>LS: Store stat to note that creatve was rendered
 ```
 
-## New Approach 1: Stream Events from Page to a new Analytics Pipeline
+## New Approach 1: Stream Events from Page to the new Analytics Pipeline
 Storing data on user's device limits the data that can be used in decision making so we should stream data to server side storage as event occurs and then aggregate the data and proovide it to SSP Server to use in the decision making
 
 ```mermaid
@@ -51,9 +51,12 @@ sequenceDiagram
         participant PBJS_Module as Prebid JS Data Collection Module
         participant SSP_Bidder as PubMatic Bid Adapter
     end
+    box PubMatic
     participant SSP_Server as SSP Server
     participant SSP_Event_Logger as SSP Event Logger Server
+    participant SSP_Event_Analytics as SSP Event Analytics Pipe
     participant SSP_DB as SSP DB with Aggregated Data
+    end
     participant GAM as Google Ad Manager
     
     PubCode->>PBJS_Core: Initiate Auction For AdSlot1
@@ -72,9 +75,13 @@ sequenceDiagram
     GPT->>PBJS_Core: Render specific bid
     PBJS_Core->>PubCode: Render the winning bid creative
     GPT->>PBJS_Module: Inform as creative is rendered
-    PBJS_Module->>SSP_Event_Logger: Store stat to note that creative was rendered
-    SSP_Event_Logger->>SSP_DB: (Delayed) Store Aggregated Data
+    PBJS_Module->>SSP_Event_Logger: Store stat to note that creatve was rendered
+    SSP_Event_Logger->>SSP_Event_Analytics: Batch the data and pass to Analytics
+    SSP_Event_Analytics->>SSP_DB: (Delayed) Store Aggregated Data so that AdServer can use
     GPT->>PBJS_Module: Inform as creative is viewed by user
     PBJS_Module->>SSP_Event_Logger: Store stat to note that creatve was rendered
-    SSP_Event_Logger->>SSP_DB: (Delayed) Store Aggregated Data
+    SSP_Event_Logger->>SSP_Event_Analytics: Batch the data and pass to Analytics
+    SSP_Event_Analytics->>SSP_DB: (Delayed) Store Aggregated Data so that AdServer can use
 ```
+
+## New Approach 2: Don't Stream Events from Page to the new Analytics Pipeline. 
