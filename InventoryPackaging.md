@@ -12,7 +12,7 @@ sequenceDiagram
     participant GPT as Google Publisher Tag
         participant PBJS_Core as Prebid JS Core
         participant PBJS_Module as Prebid JS Data Collection Module
-        participant SSP_Bidder as PubMatic Bid Adapter
+        participant SSP_Bidder as Prebid PubMatic Bid Adapter
     end
     participant SSP_Server as SSP Server
     participant GAM as Google Ad Manager
@@ -49,7 +49,7 @@ sequenceDiagram
     participant GPT as Google Publisher Tag
         participant PBJS_Core as Prebid JS Core
         participant PBJS_Module as Prebid JS Data Collection Module
-        participant SSP_Bidder as PubMatic Bid Adapter
+        participant SSP_Bidder as Prebid PubMatic Bid Adapter
     end
     box PubMatic
     participant SSP_Server as SSP Server
