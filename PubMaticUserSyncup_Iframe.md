@@ -32,8 +32,9 @@ sequenceDiagram
         PugM->>PugM: Select the DSP pixels to execute, Check consent, Replace Macros
         PugM->>PugM: Mark pixels as executed
         PugM->>UserSync: Send the URLs to be execueted in iframe/image tags, TPC are set
-        UserSync->>Page: Set PubMatic UserCookie
-        UserSync->>UserSync: Wrap the pixels as needed in iframe or image tag and execute them
+        UserSync->>Page: Set TPC PubMatic UserCookie
+        UserSync->>Page: Set TPC PubMatic SyncRTB cookie to track which pixels are selected
+        UserSync->>UserSync: Wrap each DSP pixel in iframe or image tag and execute
         UserSync->>DSP: Pixel executes and DSP end-point is triggered
         DSP->>DSP: Check consent
         DSP->>DSP: Set User ID cookie if not present, 
@@ -41,7 +42,7 @@ sequenceDiagram
         DSP->>Pug: Pass DSP User ID to PubMatic
         Pug->>Pug: Check consent, Read DSP ID, Set TPC to store DSP's User ID
         Pug->>Page: Set the KRTB cookie for the DSP
-        UserSync->>SPug: Call to store client-side data to server-side
+        UserSync->>SPug: One Call to store client-side data to server-side
         SPug->>Aero: Keep map of our User ID to the DSP User IDs, all the data is receved through cookie header        
     end
     
