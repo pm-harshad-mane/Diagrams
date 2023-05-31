@@ -39,7 +39,7 @@ sequenceDiagram
         DSP->>DSP: Check consent
         DSP->>DSP: Set User ID cookie if not present, 
         DSP->>DSP: Prepare PubMattic Pug call, Replace macros, put DSP ID in query params
-        DSP->>Pug: Pass DSP User ID to PubMatic
+        DSP->>Pug: HTTP 302: Pass DSP User ID to PubMatic
         Pug->>Pug: Check consent, Read DSP ID, Set TPC to store DSP's User ID
         Pug->>Page: Set the KRTB cookie for the DSP
         UserSync->>SPug: One Call to store client-side data to server-side
