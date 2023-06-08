@@ -41,6 +41,6 @@ gantt
 
     section Analytics
     Ana-1               :  t1, 2023-06-19, 10d
-    Ana-2               :  t1, after t1, 20d
+    Ana-2               :  t2, after t1, 20d
     
 ```
