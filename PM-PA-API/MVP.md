@@ -12,6 +12,10 @@ gantt
     Topic-6              :         des4, 2023-06-19, 10d
 
     section BidRequest
+    BidReq-1               :active,  t1, 2023-06-05,2023-06-19
+    BidReq-3               :done,  t2, 2023-06-05,2023-06-19
+    BidReq-4               :done,  t3, 2023-06-05,2023-06-19
+    
 
     section BiidResponse
     BidRes-1               :  t1, 2023-06-19, 10d
@@ -27,19 +31,16 @@ gantt
     section Worklet
     Worklet-1               :  t1, 2023-06-19, 10d
     Worklet-2               :  t2, after t1, 10d
-    Worklet-3               :  t3, after t2, 10d
+    Worklet-3               :  t3, after t2, 10
     
-    
-    
-    
-    section KeyValue Server
-    
-    
+    section KeyValue Server    
+    KVS-1               :  t1, 2023-06-19, 5d
     
     section Auctin Config Signals
     
 
     section Analytics
-    
+    Ana-1               :  t1, 2023-06-19, 10d
+    Ana-2               :  t1, after t1, 20d
     
 ```
