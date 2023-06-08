@@ -1,7 +1,7 @@
 ```mermaid
 gantt
     dateFormat  YYYY-MM-DD
-    title       Protected audience - MVP
+    title       Protected Audience - MVP
     excludes    weekends
     %% (`excludes` accepts specific dates in YYYY-MM-DD format, days of the week ("sunday") or "weekends", but not the word "weekdays".)
 
