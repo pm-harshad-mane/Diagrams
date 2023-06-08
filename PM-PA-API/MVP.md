@@ -24,8 +24,7 @@ gantt
     BidRes-6               : t4, after t3, 5d
     BidRes-8               : t5, after t4, 5d
     BidRes-7               : t6, after t4, 5d
-    BidRes-9               : t7, after t4, 5d
-    BidRes-9               : t8, after t7, 5d
+    BidRes-9               : t8, after t6, 5d
     BidRes-12               : t9, after t4, 10d
     
     section Worklet
