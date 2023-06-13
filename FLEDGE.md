@@ -63,12 +63,12 @@ sequenceDiagram
     
     alt A Ineterest Group Auction Winner
         FLEDGE->>GPT: PAAPI Returns Opaque Pointer
-        GPT->>Pub: Returns IG Ad in fenced frame
+        GPT->>Pub: Returns IG Ad in Fenced frame
     else B Contextual Auction Winner    
-        FLEDGE->>GPT: FLEDGE Returns Null
-        alt B1 GAM Winner
+        FLEDGE->>GPT: PAAPI Returns Null
+        alt B1 GAM Contextual Winner
             GPT->>Pub: Renders Contextual GAM bid
-        else B2 Prebid Winner    
+        else B2 Prebid Contextual Winner    
             GPT->>PBJS: Signal Prebid to render Contextual Prebid bid
             PBJS->>Pub: Renders Contextual Prebid bid
         end    
