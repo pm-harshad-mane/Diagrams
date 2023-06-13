@@ -36,13 +36,19 @@ sequenceDiagram
     DSP_Server->>SSP_Server: ORTB Response, DSP responds <br/> with Contextual and/or signals for PAAPI auction
     SSP_Server->>SSP_PBJS: ORTB Response with <br/> Contextual bid and/or ingredients for PAAPI AuctionConfig
     SSP_PBJS->>PBJS: Submit both Contextual <br/> and PAAPI AuctionConfig
-    PBJS->>PBJS_FLEDGE: Request to pass the pAAPI AuctionConfig
+    PBJS->>PBJS_FLEDGE: Request to pass the PAAPI AuctionConfig
     PBJS_FLEDGE->>GPT: Submit PAAPI AuctionConfig <br/> for PAAPI enabled AdSlots
     PBJS->>PBJS: Conduct Contextual Bids Auction
     PBJS->>GPT: Add Key-Value pairs for Contxtual bid on AdSlot
     GPT->>GAM: Make GAM Ad Request
     GAM->>GPT: Returns GAM Ad Response
-    GPT->>FLEDGE: Invokes runAdAuction with ComponentAuctions
+    GPT->>FLEDGE: Invokes runAdAuction with ComponentAuctions as submitted earlier
+    FLEDGE->>FLEDGE: Kickoff all ComponentAuctions
+    FLEDGE->>DSP_CDN: Fetch DSP bidding logic JS Worklet
+    DSP_CDN->>FLEDGE: Return DSP bidding logic JS Worklet
+    FLEDGE->>DSP_KV: Fetch DSP real-time bidding signals
+    DSP_KV->>FLEDGE: Return DSP real-time bidding signals
+    
     alt A Ineterest Group Auction Winner
         FLEDGE->>GPT: FLEDGE Returns Opaque Pointer
         GPT->>Pub: Returns IG Ad in fenced frame
