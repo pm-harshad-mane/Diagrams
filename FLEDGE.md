@@ -27,19 +27,17 @@ sequenceDiagram
     end
     
 
-    Pub->>GPT: Declare AdSlots on page
-    Pub->>GPT: Enable FLEDGE on some AdSlots
-    Pub->>PBJS: Configure AdUnits for PBJS Auction
-    Pub->>PBJS_FLEDGE: Configure some AdUnits for as FLEDGE enable
+    Pub->>GPT: Declare AdSlots on page <br/> (some PAAPI-enabled)
+    Pub->>PBJS: Configure AdSlots for PBJS Auction <br/> (some PAAPI-enabled)
     Pub->>PBJS: Initiate PBJS Auction
-    PBJS->>SSP_PBJS: Pass AdUnits and inform <br/> which ones are FLEDGE enabled
-    SSP_PBJS->>SSP_Server: ORTB Request with ae:1 <br/>  on some impression objects
-    SSP_Server->>DSP_Server: ORTTB Request
-    DSP_Server->>SSP_Server: ORTB Response, DSP responds <br/> with Contextual and/or FLEDGE bids
-    SSP_Server->>SSP_PBJS: ORTB Response with <br/> Contextual bid and/or FLEDGE bids
-    SSP_PBJS->>PBJS: Submit both Contextual <br/> and FLEDGE bids
-    PBJS->>PBJS_FLEDGE: Pass the FLEDGE Bids
-    PBJS_FLEDGE->>GPT: Submit FLEDGE Auction Config <br/> for FLEDGE enabled AdSlots with FLEDGE bids
+    PBJS->>SSP_PBJS: Pass AdUnits and inform <br/> which ones are PAAPI-enabled
+    SSP_PBJS->>SSP_Server: ORTB Request with ae:1 <br/> on some impression objects
+    SSP_Server->>DSP_Server: ORTB Request
+    DSP_Server->>SSP_Server: ORTB Response, DSP responds <br/> with Contextual and/or signals for PAAPI auction
+    SSP_Server->>SSP_PBJS: ORTB Response with <br/> Contextual bid and/or ingredients for PAAPI AuctionConfig
+    SSP_PBJS->>PBJS: Submit both Contextual <br/> and PAAPI AuctionConfig
+    PBJS->>PBJS_FLEDGE: Request to pass the pAAPI AuctionConfig
+    PBJS_FLEDGE->>GPT: Submit PAAPI AuctionConfig <br/> for PAAPI enabled AdSlots
     PBJS->>PBJS: Conduct Contextual Bids Auction
     PBJS->>GPT: Add Key-Value pairs for Contxtual bid on AdSlot
     GPT->>GAM: Make GAM Ad Request
