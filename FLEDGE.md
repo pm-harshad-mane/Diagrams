@@ -12,9 +12,9 @@ sequenceDiagram
     participant SSP_PBJS as PrebidJS SSP BidAdapter
     end
     box SSP
-    participant SSP_Server
-    participant SSP_CDN
+    participant SSP_Server    
     participant SSP_KV as SSP Key/Value Server
+    participant SSP_CDN
     end
     box DSP
     participant DSP_Server
