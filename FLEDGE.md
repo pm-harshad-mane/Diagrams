@@ -3,6 +3,7 @@
 ```mermaid
 sequenceDiagram
     autonumber
+    participant FLEDGE as Protected Audience API on Chrome
     participant Pub as Publisher
     participant GPT as Google Publisher Tag
     box PrebidJS
@@ -10,10 +11,21 @@ sequenceDiagram
     participant PBJS_FLEDGE as PrebidJS Fledge Module
     participant SSP_PBJS as PrebidJS SSP BidAdapter
     end
+    box SSP
     participant SSP_Server
+    participant SSP_CDN
+    participant SSP_KV as SSP Key/Value Server
+    end
+    box DSP
     participant DSP_Server
-    participant GAM as GAM/OB/AdX
-    Participant FLEDGE
+    participant DSP_CDN
+    participant DSP_KV as DSP Key/Value Server    
+    end
+    box GAM
+    participant GAM as GAM/OB/AdX (Top Seller)
+    participant GAM_KV as GAM Key/Value Server
+    end
+    
 
     Pub->>GPT: Declare AdSlots on page
     Pub->>GPT: Enable FLEDGE on some AdSlots
