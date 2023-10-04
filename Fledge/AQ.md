@@ -14,7 +14,7 @@ sequenceDiagram
     participant SSPAQ as SSP AQ Service
     end
 
-    PACore->>SSPKV: Sends renderingURL
+    PACore->>SSPKV: Sends renderingURL. <br/> KV endpoint is configured to receive PublisherID in request PATH.
     SSPKV->>SSPKVDB: Request data from DB against given renderingURL
     SSPKVDB->>SSPKV: Data is found in DB and is returned
     SSPKV->>SSPKV: Verify current renderingURL's adMetdata <br/> against Publisher's AQ requirements
