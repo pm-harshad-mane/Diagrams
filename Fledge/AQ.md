@@ -18,7 +18,7 @@ sequenceDiagram
     SSPKV->>SSPKVDB: Request data from DB against given renderingURL
     SSPKVDB->>SSPKV: Data is found in DB and is returned
     SSPKV->>SSPKV: Verify current renderingURL's adMetdata <br/> against Publisher's AQ requirements
-    SSPKV->>PACore: Returns a custom JSON say KV-JSON <br/> with renderingURL as key and an object against it. <br/> { "renderingURL": { dataFound: true/false, isBlocked: true/false, blockReasonCode: integer } }
+    SSPKV->>PACore: Returns a custom JSON say KV-JSON. <br/> { "renderingURL": { dataFound: true/false, isBlocked: true/false, blockReasonCode: integer } }
     PACore->>SSPW: Share KV-JSON to scoreAd function
     SSPW->>SSPW: Utilize KV-JSON to score bids
     SSPW->>PACore: Register forDebuggingOnly Win and Loss functions, push renderingURL, adMetaData, KV-JSON.dataFound, buyerID  into it
