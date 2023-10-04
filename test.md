@@ -1,3 +1,16 @@
+
+```mermaid
+flowchart TB
+    A[Top Level Seller A] --- CSB[Componene Seller B]
+    A --- CSC[Componene Seller C]
+    CSB --- B1
+    CSB --- B2
+    CSB --- B3
+    CSC --- C1
+    CSC --- C2
+    CSC --- C3
+```
+
 Cookie based user retargeting
 ```mermaid
 graph LR  
