@@ -24,6 +24,7 @@ sequenceDiagram
     SSPW->>PACore: Register forDebuggingOnly Win and Loss functions, push renderingURL, adMetaData, KV-JSON.dataFound, buyerID  into it
     PACore->>SSPRE: Make a fetch call with URLs registered in forDebuggingOnly functions
     SSPRE->>SSPAQ: Send Loss notifications records with KV-JSON.dataFound=false <br/> { renderingURL, adMetaData, buyerID }
-    SSPAQ->>SSPAQ: Log the records where adMetada was not found 
+    SSPAQ->>SSPAQ: Log the records where adMetada was not found
+    SSPAQ->>SSPAQ: Run additional check(s) for the given renderingURL, adMetadata, DSP-ID
     SSPAQ->>SSPKVDB: Push Data into DB, Map of renderingURL to adMetada.
 ```
