@@ -1,3 +1,5 @@
+# Buyers / DSPs aquiring users from Advertiser sites to retarget
+
 ```mermaid
 sequenceDiagram
     autonumber
@@ -17,4 +19,11 @@ sequenceDiagram
     DSP_pix->>Browser: Set third-party cookies to identify the user and to mark user taretable for the campaign
 
 ```
-    
+
+# User sync between SSP and DSP on Publisher site
+
+# Displaying Retargeted Ads on Publisher web-sites
+
+
+
+
