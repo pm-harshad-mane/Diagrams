@@ -17,9 +17,12 @@ sequenceDiagram
     PACore->>SSPKV: Sends renderingURL
     SSPKV->>SSPKVDB: Request data from DB against given renderingURL
     SSPKVDB->>SSPKV: Data is found in DB and is returned
-    SSPKV->>PACore: Returns a custom JSON say KV-JSON <br/> with renderingURL as key and an object against it
+    SSPKV->>SSPKV: Verify current renderingURL's adMetdata <br/> against Publisher's AQ requirements
+    SSPKV->>PACore: Returns a custom JSON say KV-JSON <br/> with renderingURL as key and an object against it. <br/> { "renderingURL": { dataFound: true/false, isBlocked: true/false, blockReasonCode: integer } }
     PACore->>SSPW: Share KV-JSON to scoreAd function
     SSPW->>SSPW: Utilize KV-JSON to score bids
-    SSPW->>PACore: Register forDebuggingOnly Win and Loss functions, push renderingURL, adMetaData, KV-JSON into it
+    SSPW->>PACore: Register forDebuggingOnly Win and Loss functions, push renderingURL, adMetaData, KV-JSON.dataFound, buyerID  into it
     PACore->>SSPRE: Make a fetch call with URLs registered in forDebuggingOnly functions
+    SSPRE->>SSPAQ: Send Loss notifications records with KV-JSON.dataFound=false <br/> { renderingURL, adMetaData, buyerID }
+    SSPAQ->>SSPKVDB: Push Data into DB, Map of renderingURL to adMetada
 ```
