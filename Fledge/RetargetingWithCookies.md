@@ -21,6 +21,19 @@ sequenceDiagram
 ```
 
 # User sync between SSP and DSP on Publisher site
+```mermaid
+sequenceDiagram
+    autonumber
+    actor User
+    participant Browser
+    participant Pub as Publisher Site
+    box DSP Infra
+    participant DSP_pix as DSP Pixeling Server
+    participant DSP_db as DSP Server Cookie-Store
+    end
+
+```
+
 
 # Displaying Retargeted Ads on Publisher web-sites
 
