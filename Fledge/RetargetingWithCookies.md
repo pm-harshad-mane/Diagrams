@@ -50,7 +50,35 @@ sequenceDiagram
 
 
 # Displaying Retargeted Ads on Publisher web-sites
+```mermaid
+sequenceDiagram
+    autonumber
+    actor User
+    participant Browser
+    participant Pub as Publisher Site
+    box SSP Infra
+    participant SSP_bid as SSP Bidding Server
+    participant SSP_db as SSP Server Cookie-Store
+    end
+    box DSP Infra
+    participant DSP_bid as DSP Bidding Server
+    participant DSP_db as DSP Server Cookie-Store
+    end
 
+    User->>Browser: Opens Browser
+    Browser->>Pub: Visits Publisher Site
+    Pub->>SSP_bid: AdRequest is made to SSP Bidding Server <br/> Browser send SSP-User-ID TPC in request.
+    SSP_bid->>SSP_db: Retrieve SSP-User-ID information
+    SSP_db->>SSP_bid: SSP-User-ID to DSP-User-ID map is returned
+    SSP_bid->>DSP_bid: Request bids from DSP <br/> Pass SSP-User-ID and DSP-User-ID in ORTB request.
+    DSP_bid->>DSP_db: Retrieve information about DSP-User-ID
+    DSP_db->>DSP_bid: Return list of re-targeted campaigns for DSP-User-ID
+    DSP_bid->>DSP_bid: Find appropriate retargeting campaign to bid
+    DSP_bid->>SSP_bid: Return a bid to SSP
+    SSP_bid->>SSP_bid: Conduct auction of the bids received from multiple DSPs
+    SSP_bid->>Pub: Return the SSP auction winning bid to Publisher code
+    Pub->>Browser: Render the targeted ad    
+```
 
 
 
