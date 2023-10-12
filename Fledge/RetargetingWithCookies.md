@@ -66,6 +66,33 @@ sequenceDiagram
     SSP_pix->>SSP_db: Maintain a map of SSP-User-ID to DSP-User-ID
 ```
 
+```mermaid
+sequenceDiagram
+    autonumber
+    actor User
+    participant Browser
+    participant Pub as Publisher Site
+    box SSP Infra
+    participant SSP_pix as SSP Pxeling Server
+    participant SSP_db as SSP Server Cookie-Store
+    end
+    box DSP Infra
+    participant DSP_pix as DSP Pixeling Server
+    participant DSP_db as DSP Server Cookie-Store
+    end
+
+    User->>Browser: 
+    Browser->>Pub: 
+    Pub->>SSP_pix: 
+    SSP_pix->>Browser: 
+    Browser->>DSP_pix: 
+    DSP_pix->>DSP_pix: 
+    DSP_pix->>DSP_db: 
+    DSP_pix->>Browser: 
+    Browser->>SSP_pix: 
+    SSP_pix->>SSP_db: 
+```
+
 
 # Displaying Retargeted Ads on Publisher web-sites
 ```mermaid
