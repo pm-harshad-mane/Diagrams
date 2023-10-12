@@ -86,6 +86,8 @@ sequenceDiagram
     User->>Browser: 
     Browser->>Pub: 
     Pub->>SSP_pix: 
+    SSP_pix->>SSP_pix: 
+    SSP_pix->>SSP_db: 
     SSP_pix->>Browser: 
     Browser->>DSP_pix: 
     DSP_pix->>DSP_pix: 
