@@ -15,7 +15,7 @@ sequenceDiagram
     Browser->>Adv: Visits Advertiser Site
     Adv->>DSP_pix: A preconfigured DSP pixel with a campaign-Id executes from the Adveriser page  <br/> Makes a call to DSP Pixeling Server
     DSP_pix->>DSP_pix: Generate unique user-ID
-    DSP_pix->>DSP_db: Store the information that the given user is retargatable for the given campaign-id
+    DSP_pix->>DSP_db: Store the information that the given user is retargatable for the given campaign-id. <br/> Keep track of domains user visists to create user-profile.
     DSP_pix->>Browser: Set third-party cookies to identify the user and to mark user taretable for the campaign
 ```
 
