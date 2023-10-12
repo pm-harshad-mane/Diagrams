@@ -39,11 +39,5 @@ sequenceDiagram
     PA->>GAM_Worklet: Execute win-loss notifications
     PA->>GAM_Worklet: Execute reportResult
     PA->>SSP_Worklet: Execute reportResult
-    PA->>DSP_Worklet: Execute reportWin
-    
-    
-    
-    
-
-    
+    PA->>DSP_Worklet: Execute reportWin 
 ```
