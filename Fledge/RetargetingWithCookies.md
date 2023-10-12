@@ -27,11 +27,21 @@ sequenceDiagram
     actor User
     participant Browser
     participant Pub as Publisher Site
+    box SSP Infra
+    participant SSP_pix as SSP Pxeling Server
+    participant SSP_db as SSP Server Cookie-Store
+    end
     box DSP Infra
     participant DSP_pix as DSP Pixeling Server
     participant DSP_db as DSP Server Cookie-Store
     end
 
+    User->>Browser: Opens Browser
+    Browser->>Pub: Visits Publisher Site
+    Pub->>SSP_pix: A preconfigured SSP pixel executes from the Adveriser page  <br/> Makes a call to SSP Pixeling Server
+    SSP_pix->>Browser: Set SSP-User-ID TPC and set a redirect call to DSP Pixeling server to share SSP-User-ID
+    Browser->>DSP_pix: Call to DSP Pixeling Server
+    DSP_pix->>Browser: Set DSP-User-ID TPC and set a redirect call to SSP Pixeling server to share DSP-User-ID
 ```
 
 
