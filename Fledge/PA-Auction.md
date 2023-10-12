@@ -34,10 +34,16 @@ sequenceDiagram
     PA->>GAM_Worklet: Call Top Seller's scoreBid()
     GAM_Worklet->>GAM_Worklet: Score the bids submitted by SSPs <br/> Declare the auction winner
     GAM_Worklet->>PA: Declare the auction winner, render the creative
-    PA->>DSP_Worklet: Execute win-loss notifications
-    PA->>SSP_Worklet: Execute win-loss notifications
-    PA->>GAM_Worklet: Execute win-loss notifications
-    PA->>GAM_Worklet: Execute reportResult
-    PA->>SSP_Worklet: Execute reportResult
-    PA->>DSP_Worklet: Execute reportWin 
+    PA->>DSP_Worklet: Execute win-loss notifications function
+    DSP_Worklet->>DSP_RE: Win-Loss notification sent to DSP
+    PA->>SSP_Worklet: Execute win-loss notifications function
+    SSP_Worklet->>SSP_RE: Win-Loss notification sent to SSP
+    PA->>GAM_Worklet: Execute win-loss notifications function
+    GAM_Worklet->>GAM_RE: Win-Loss notification sent to GAM
+    PA->>GAM_Worklet: Execute reportResult function
+    GAM_Worklet->>GAM_RE: reportResult notification sent to GAM
+    PA->>SSP_Worklet: Execute reportResult function
+    SSP_Worklet->>SSP_RE: reportResult notification sent to SSP
+    PA->>DSP_Worklet: Execute reportWin function
+    DSP_Worklet->>DSP_RE: reportWin notification sent to SSP
 ```
