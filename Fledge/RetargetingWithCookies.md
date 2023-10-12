@@ -80,5 +80,35 @@ sequenceDiagram
     Pub->>Browser: Render the targeted ad    
 ```
 
+```mermaid
+sequenceDiagram
+    autonumber
+    actor User
+    participant Browser
+    participant Pub as Publisher Site
+    box SSP Infra
+    participant SSP_bid as SSP Bidding Server
+    participant SSP_db as SSP Server Cookie-Store
+    end
+    box DSP Infra
+    participant DSP_bid as DSP Bidding Server
+    participant DSP_db as DSP Server Cookie-Store
+    end
+
+    User->>Browser: 
+    Browser->>Pub: 
+    Pub->>SSP_bid: 
+    SSP_bid->>SSP_db: 
+    SSP_db->>SSP_bid: 
+    SSP_bid->>DSP_bid: 
+    DSP_bid->>DSP_db: 
+    DSP_db->>DSP_bid: 
+    DSP_bid->>DSP_bid: 
+    DSP_bid->>SSP_bid: 
+    SSP_bid->>SSP_bid: 
+    SSP_bid->>Pub: 
+    Pub->>Browser: 
+```
+
 
 
