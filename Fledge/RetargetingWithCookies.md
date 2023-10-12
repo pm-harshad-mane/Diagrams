@@ -57,10 +57,12 @@ sequenceDiagram
     User->>Browser: Opens Browser
     Browser->>Pub: Visits Publisher Site
     Pub->>SSP_pix: A preconfigured SSP pixel executes from the Adveriser page  <br/> Makes a call to SSP Pixeling Server
+    SSP_pix->>SSP_pix: Generate SSP-User-ID
+    SSP_pix->>SSP_db: Optionally keep track of domains user visists to create user-profile.
     SSP_pix->>Browser: Set SSP-User-ID TPC and set a redirect call to DSP Pixeling server to share SSP-User-ID
     Browser->>DSP_pix: Call to DSP Pixeling Server to share SSP-User-ID
     DSP_pix->>DSP_pix: Generate DSP-User-ID
-    DSP_pix->>DSP_db: Optionally maintain map of DSP-User-ID to SSP-User-ID 
+    DSP_pix->>DSP_db: Optionally maintain map of DSP-User-ID to SSP-User-ID <br/> Keep track of domains user visists to create user-profile. 
     DSP_pix->>Browser: Set DSP-User-ID TPC and set a redirect call to SSP Pixeling server to share DSP-User-ID
     Browser->>SSP_pix: Call to DSP Pixeling Server to share DSP-User-ID
     SSP_pix->>SSP_db: Maintain a map of SSP-User-ID to DSP-User-ID
