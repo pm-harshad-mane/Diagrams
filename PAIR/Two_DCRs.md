@@ -7,15 +7,15 @@ participant AC as Advertiser DCR
 participant Adv as Advertiser
 participant DSP
 
-PC->>AC: 1.a
-AC->>AC: 1.b
-PC->>PC: 1.c
+PC->>AC: 1.a Generate Ks for Advertiser-Puublisher pair and share with AC
+AC->>AC: 1.b Generate Ka
+PC->>PC: 1.c Generate Kp
 
-Adv->>AC: 2.a.1
-AC->>AC: 2.a.2
+Adv->>AC: 2.a.1 Upload raw Advertiser ID list (PII used as join keys) using TLS//SSL
+AC->>AC: 2.a.2 AC canonicalizes Advertiser's PII, encrypts using Ks and Ka, and adds a field AdvPubID* to each row
 
-Pub->>PC: 2.b.1
-PC->>PC: 2.b.2
+Pub->>PC: 2.b.1 Upload raw Publisher ID list (PII used as join keys) using TLS//SSL
+PC->>PC: 2.b.2 AC canonicalizes Publisher's PII, encrypts using Ks and Kp, and adds a field AdvPubID* to each row
 
 AC->>PC: 2.c
 PC->>AC: 2.d
