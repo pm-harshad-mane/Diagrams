@@ -19,7 +19,7 @@ DCR->>DCR: 2.f Encrypt Advertiser list using Kp. Generating Publisher PAIR IDs.
 
 DCR->>DCR: 3.a Match PAIR IDs from the Advertiser and Publisher lists
 DCR->>Pub: 3.b.1 Tabular list with two columns, (1) raw PII (e.g. email) and (2) KsKp encrypted IDs (Publisher identifiers).<br/>This list contains all the Publisher PII, not just matches.
-DCR->>DSP:
+DCR->>DSP: bla bla bla
 
 ```
 
