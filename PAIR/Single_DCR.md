@@ -1,4 +1,5 @@
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'participantBkgColor': '#f0f0f0', 'participantBorderColor': '#000000' }}}%%
 sequenceDiagram
 
 participant Adv as Advertiser
