@@ -11,6 +11,6 @@ sequenceDiagram
     Publisher->>SSP: Respond with stored user ID
     SSP->>DSP: Send ID in pixel request
     DSP-->>SSP: Acknowledge pixel execution
-    SSP->>Publisher: Notify DSP pixel execution
-    Publisher->>Publisher: Track executed DSP pixels
+    SSP->>Publisher: Notify SSP-DSP pixel combination execution
+    Publisher->>Publisher: Track executed SSP-DSP pixels
 ```
