@@ -2,11 +2,11 @@
 sequenceDiagram
     participant User
     participant Publisher
-    participant SSP
+    participant SSP as SSP code in 3P-iframe 
     participant DSP
     
     User->>Publisher: Visit website
-    Publisher->>Publisher: Generate and store user ID
+    Publisher->>Publisher: Generate and store user ID in 1P
     SSP->>Publisher: Request user ID via postMessage
     Publisher->>SSP: Respond with stored user ID
     SSP->>DSP: Send ID in pixel request
