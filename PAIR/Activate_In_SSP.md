@@ -21,9 +21,12 @@ SSP->>DSP: SSP passes the PAIR ID in bid request.<br/> Needs to support eid and 
 DSP->>DSP: DSP assesses incoming bid requests with its KsKp lists <br/>to check if there is a match with any active PAIR campaigns
 DSP->>SSP: DSP sends bid response when there is a PAIR match.<br/>Note that SSP does not know if there is a PAIR match.<br/> DSP response may be PAIR match or other targeting criteria match.<br/>
 
+%% Box around steps 9–10–11
+rect rgba(200, 230, 255, 0.3)
 SSP->>SSP: SSP assesses incoming bid requests with its KsKp lists <br/>to check if there is a match with any active PAIR campaigns<br/> Retieve DealID(s) far eligible campaign(s)<br/>
 SSP->>DSP2: SSP passes the retrieved DealID(s) in bid request.
 DSP2->>SSP: DSP may send bid response for DealID(s).
+end
 
 SSP->>SSP: Conduct auction on available bids from DSPs
 
