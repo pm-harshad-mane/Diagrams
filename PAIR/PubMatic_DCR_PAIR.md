@@ -3,7 +3,7 @@
 sequenceDiagram
 
 participant Adv as Advertiser
-participant DCR
+participant DCR as PubMatic DCR
 participant Pub as Publisher
 participant DSP
 
