@@ -1,11 +1,13 @@
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'participantBkgColor': '#f0f0f0', 'participantBorderColor': '#000000' }}}%%
 sequenceDiagram
-
-participant Adv as Advertiser
-participant DCR as PubMatic DCR
+autoNumber
 participant Pub as Publisher
+participant DCR as PubMatic DCR
+participant Adv as Advertiser
 participant DSP
+participant SSP as PubMatic SSP
+
 
 DCR->>DCR: 1.a Generate Ks for Advertiser-Puublisher pair
 DCR->>DCR: 1.b Generate Ka
@@ -21,5 +23,6 @@ DCR->>DCR: 2.f Encrypt Advertiser list using Kp. Generating Publisher PAIR IDs.
 DCR->>DCR: 3.a Match PAIR IDs from the Advertiser and Publisher lists
 DCR->>Pub: 3.b.1 Tabular list with two columns, <br/>(1) raw PII (e.g. email) and <br/>(2) KsKp encrypted IDs (Publisher identifiers).<br/><br/>This list contains all the Publisher PII, not just matches.
 DCR->>DSP: List of matches encrypted by KsKp <br/>(no PII shared)
+DCR->>SSP: List of matches encrypted by KsKp <br/>(no PII shared)
 
 ```
