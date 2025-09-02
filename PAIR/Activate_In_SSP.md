@@ -1,7 +1,7 @@
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'participantBkgColor': '#f0f0f0', 'participantBorderColor': '#000000' }}}%%
 sequenceDiagram
-
+autoNumber
 participant PC as Publisher DCR
 participant Pub as Publisher
 participant SSP
@@ -21,9 +21,9 @@ SSP->>DSP: SSP passes the PAIR ID in bid request.<br/> Needs to support eid and 
 DSP->>DSP: DSP assesses incoming bid requests with its KsKp lists <br/>to check if there is a match with any active PAIR campaigns
 DSP->>SSP: DSP sends bid response when there is a PAIR match.<br/>Note that SSP does not know if there is a PAIR match.<br/> DSP response may be PAIR match or other targeting criteria match.<br/>
 
-SSP->>SSP: SSP assesses incoming bid requests with its KsKp lists <br/>to check if there is a match with any active PAIR campaigns<br/> Retieve DealID(s) far eligible campaign(s)
-SSP->>DSP2: SSP passes the retrieved DealID(s) in bid request.<br/>
-DSP2->>SSP: DSP may send bid response for DealID(s).<br/>
+SSP->>SSP: SSP assesses incoming bid requests with its KsKp lists <br/>to check if there is a match with any active PAIR campaigns<br/> Retieve DealID(s) far eligible campaign(s)<br/>
+SSP->>DSP2: SSP passes the retrieved DealID(s) in bid request.
+DSP2->>SSP: DSP may send bid response for DealID(s).
 
 SSP->>SSP: Conduct auction on available bids from DSPs
 
