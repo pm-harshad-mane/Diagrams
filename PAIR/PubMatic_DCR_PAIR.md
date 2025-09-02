@@ -5,7 +5,7 @@ autoNumber
 participant Pub as Publisher
 participant DCR as PubMatic DCR
 participant Adv as Advertiser
-participant DSP
+participant DSP as PAIR Compatible DSP
 participant SSP as PubMatic SSP
 
 
