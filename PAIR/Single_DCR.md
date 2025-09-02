@@ -2,9 +2,9 @@
 %%{init: {'theme': 'base', 'themeVariables': { 'participantBkgColor': '#f0f0f0', 'participantBorderColor': '#000000' }}}%%
 sequenceDiagram
 
-participant Adv as Advertiser
-participant DCR
 participant Pub as Publisher
+participant DCR
+participant Adv as Advertiser
 participant DSP
 
 DCR->>DCR: 1.a Generate Ks for Advertiser-Puublisher pair
